@@ -1,0 +1,11 @@
+# top-most EditorConfig file
+root = true
+
+# 2 space indentation
+[*.{js,styl,flow,json}]
+indent_style = space
+indent_size = 2
+
+# Tab indentation (no size specified)
+[*.html]
+indent_style = tab
