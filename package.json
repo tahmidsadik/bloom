@@ -6,6 +6,9 @@
   "repository": "https://github.com/tahmidsadik112/bloom",
   "author": "Tahmid Sadik",
   "license": "MIT",
+  "scripts": {
+    "build": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 127.0.0.1 --port 80"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
@@ -20,7 +23,8 @@
     "style-loader": "^0.18.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
-    "webpack": "^2.6.1"
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
     "react": "^15.5.4",
