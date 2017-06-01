@@ -25,3 +25,5 @@ node_modules/
 
 # build folder
 dist/
+
+.DS_Store

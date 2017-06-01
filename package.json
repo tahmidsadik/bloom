@@ -7,7 +7,7 @@
   "author": "Tahmid Sadik",
   "license": "MIT",
   "scripts": {
-    "build": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 127.0.0.1 --port 80"
+    "build": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -20,6 +20,7 @@
     "css-loader": "^0.28.4",
     "eslint": "^3.19.0",
     "eslint-plugin-react": "^7.0.1",
+    "react-hot-loader": "next",
     "style-loader": "^0.18.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
