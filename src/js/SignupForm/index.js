@@ -3,7 +3,7 @@ import Container from './Container';
 import Banner from './Banner';
 
 export default class SignupForm extends Component {
-  render () {
+  render() {
     return (
       <div>
         <Banner />
