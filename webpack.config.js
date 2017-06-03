@@ -1,6 +1,5 @@
 const path = require('path');
 /* global __dirname */
-
 module.exports = {
   context: path.resolve(__dirname),
   entry: ['./src/js/index.js'],
@@ -16,6 +15,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.elm$/,
+        exclude: [/elm-stuff/, /node_modules/],
+        loader: 'elm-webpack-loader'
       },
       {
         test: /\.css$/,
