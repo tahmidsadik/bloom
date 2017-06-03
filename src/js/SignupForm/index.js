@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import Container from './Container';
 import Banner from './Banner';
