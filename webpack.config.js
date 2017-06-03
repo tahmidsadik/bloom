@@ -2,7 +2,7 @@ const path = require('path');
 /* global __dirname */
 module.exports = {
   context: path.resolve(__dirname),
-  entry: ['./src/js/index.js'],
+  entry: ['./src/elm/Signup/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
