@@ -4,7 +4,7 @@ module.exports = {
     context: path.resolve(__dirname),
     entry: {
         signup: './web/static/elm/Signup/index.js'
-    }, 
+    },
     output: {
         path: path.resolve(__dirname, 'priv/static/'),
         filename: '[name].js',
