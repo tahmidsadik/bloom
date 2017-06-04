@@ -10,7 +10,6 @@ module.exports = {
     filename: '[name].js',
     publicPath: '/assets/'
   },
-
   module: {
     rules: [
       {
