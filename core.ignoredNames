@@ -1,3 +1,5 @@
 node_modules/
 elm-stuff/
+priv/
+_build/
 .DS_Store

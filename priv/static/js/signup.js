@@ -8998,7 +8998,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 const Elm = __webpack_require__(0);
 
 
-const container = document.getElementById('container');
+const container = document.getElementById('mount-point');
 Elm.Signup.Main.embed(container);
 
 
