@@ -8217,54 +8217,216 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
-var _user$project$Signup_Main$signupForm = A2(
-	_elm_lang$html$Html$div,
+var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode$field, 'keyCode', _elm_lang$core$Json_Decode$int);
+var _elm_lang$html$Html_Events$targetChecked = A2(
+	_elm_lang$core$Json_Decode$at,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$id('form-container'),
-		_1: {ctor: '[]'}
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'checked',
+			_1: {ctor: '[]'}
+		}
 	},
+	_elm_lang$core$Json_Decode$bool);
+var _elm_lang$html$Html_Events$targetValue = A2(
+	_elm_lang$core$Json_Decode$at,
 	{
 		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$div,
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class('name-container'),
-				_1: {ctor: '[]'}
-			},
-			{
+		_0: 'target',
+		_1: {
+			ctor: '::',
+			_0: 'value',
+			_1: {ctor: '[]'}
+		}
+	},
+	_elm_lang$core$Json_Decode$string);
+var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
+var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
+var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
+var _elm_lang$html$Html_Events$onFocus = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'focus',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onBlur = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'blur',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
+	_elm_lang$html$Html_Events$defaultOptions,
+	{preventDefault: true});
+var _elm_lang$html$Html_Events$onSubmit = function (msg) {
+	return A3(
+		_elm_lang$html$Html_Events$onWithOptions,
+		'submit',
+		_elm_lang$html$Html_Events$onSubmitOptions,
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onCheck = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'change',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
+};
+var _elm_lang$html$Html_Events$onInput = function (tagger) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'input',
+		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
+};
+var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseout',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseover',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseleave',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseenter',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mouseup',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'mousedown',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'dblclick',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$onClick = function (msg) {
+	return A2(
+		_elm_lang$html$Html_Events$on,
+		'click',
+		_elm_lang$core$Json_Decode$succeed(msg));
+};
+var _elm_lang$html$Html_Events$Options = F2(
+	function (a, b) {
+		return {stopPropagation: a, preventDefault: b};
+	});
+
+var _user$project$Signup_Main$update = F2(
+	function (msg, user) {
+		var _p0 = msg;
+		switch (_p0._0.ctor) {
+			case 'FirstName':
+				var _p1 = _p0._1;
+				return A2(
+					_elm_lang$core$Debug$log,
+					_elm_lang$core$Basics$toString(
+						_elm_lang$core$Native_Utils.update(
+							user,
+							{firstName: _p1})),
+					_elm_lang$core$Native_Utils.update(
+						user,
+						{firstName: _p1}));
+			case 'LastName':
+				var _p2 = _p0._1;
+				return A2(
+					_elm_lang$core$Debug$log,
+					_p2,
+					_elm_lang$core$Native_Utils.update(
+						user,
+						{lastName: _p2}));
+			case 'Email':
+				var _p3 = _p0._1;
+				return A2(
+					_elm_lang$core$Debug$log,
+					_p3,
+					_elm_lang$core$Native_Utils.update(
+						user,
+						{email: _p3}));
+			default:
+				var _p4 = _p0._1;
+				return A2(
+					_elm_lang$core$Debug$log,
+					_p4,
+					_elm_lang$core$Native_Utils.update(
+						user,
+						{password: _p4}));
+		}
+	});
+var _user$project$Signup_Main$banner = function (user) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('banner'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Fireside Social Network'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$input,
+					_elm_lang$html$Html$h5,
+					{ctor: '[]'},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$type_('text'),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$placeholder('First Name'),
-							_1: {ctor: '[]'}
-						}
-					},
-					{ctor: '[]'}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$input,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$type_('text'),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$placeholder('Last Name'),
-								_1: {ctor: '[]'}
-							}
-						},
-						{ctor: '[]'}),
-					_1: {ctor: '[]'}
-				}
-			}),
-		_1: {
+						_0: _elm_lang$html$Html$text('Serving all your fake social networking needs since forever'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Signup_Main$initUser = {firstName: 'hello', lastName: '', email: '', password: ''};
+var _user$project$Signup_Main$User = F4(
+	function (a, b, c, d) {
+		return {firstName: a, lastName: b, email: c, password: d};
+	});
+var _user$project$Signup_Main$Password = {ctor: 'Password'};
+var _user$project$Signup_Main$Email = {ctor: 'Email'};
+var _user$project$Signup_Main$LastName = {ctor: 'LastName'};
+var _user$project$Signup_Main$FirstName = {ctor: 'FirstName'};
+var _user$project$Signup_Main$UpdateUser = F2(
+	function (a, b) {
+		return {ctor: 'UpdateUser', _0: a, _1: b};
+	});
+var _user$project$Signup_Main$signupForm = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('form-container'),
+			_1: {ctor: '[]'}
+		},
+		{
 			ctor: '::',
 			_0: A2(
 				_elm_lang$html$Html$div,
@@ -8279,11 +8441,22 @@ var _user$project$Signup_Main$signupForm = A2(
 						_elm_lang$html$Html$input,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$type_('email'),
+							_0: _elm_lang$html$Html_Attributes$type_('text'),
 							_1: {
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$placeholder('Email'),
-								_1: {ctor: '[]'}
+								_0: _elm_lang$html$Html_Attributes$placeholder('First Name'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Events$onInput(
+										function (val) {
+											return A2(_user$project$Signup_Main$UpdateUser, _user$project$Signup_Main$FirstName, val);
+										}),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$value(model.firstName),
+										_1: {ctor: '[]'}
+									}
+								}
 							}
 						},
 						{ctor: '[]'}),
@@ -8293,11 +8466,18 @@ var _user$project$Signup_Main$signupForm = A2(
 							_elm_lang$html$Html$input,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$type_('password'),
+								_0: _elm_lang$html$Html_Attributes$type_('text'),
 								_1: {
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$placeholder('Password'),
-									_1: {ctor: '[]'}
+									_0: _elm_lang$html$Html_Attributes$placeholder('Last Name'),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Events$onInput(
+											function (val) {
+												return A2(_user$project$Signup_Main$UpdateUser, _user$project$Signup_Main$LastName, val);
+											}),
+										_1: {ctor: '[]'}
+									}
 								}
 							},
 							{ctor: '[]'}),
@@ -8307,64 +8487,121 @@ var _user$project$Signup_Main$signupForm = A2(
 			_1: {
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$button,
+					_elm_lang$html$Html$div,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class('button-long'),
+						_0: _elm_lang$html$Html_Attributes$class('name-container'),
 						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('Sign Up'),
-						_1: {ctor: '[]'}
+						_0: A2(
+							_elm_lang$html$Html$input,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$type_('email'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$placeholder('Email'),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Events$onInput(
+											function (val) {
+												return A2(_user$project$Signup_Main$UpdateUser, _user$project$Signup_Main$Email, val);
+											}),
+										_1: {ctor: '[]'}
+									}
+								}
+							},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$input,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$type_('password'),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$placeholder('Password'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onInput(
+												function (val) {
+													return A2(_user$project$Signup_Main$UpdateUser, _user$project$Signup_Main$Password, val);
+												}),
+											_1: {ctor: '[]'}
+										}
+									}
+								},
+								{ctor: '[]'}),
+							_1: {ctor: '[]'}
+						}
 					}),
-				_1: {ctor: '[]'}
-			}
-		}
-	});
-var _user$project$Signup_Main$banner = A2(
-	_elm_lang$html$Html$div,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('banner'),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$h1,
-			{ctor: '[]'},
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('Fireside Social Network'),
-				_1: {ctor: '[]'}
-			}),
-		_1: {
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$h5,
-				{ctor: '[]'},
-				{
+				_1: {
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('Serving all your fake social networking needs since forever'),
-					_1: {ctor: '[]'}
-				}),
-			_1: {ctor: '[]'}
-		}
-	});
-var _user$project$Signup_Main$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
-	A2(
+					_0: A2(
+						_elm_lang$html$Html$select,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$option,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Male'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$option,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Female'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$button,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('button-long'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Sign Up'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		});
+};
+var _user$project$Signup_Main$view = function (user) {
+	return A2(
 		_elm_lang$html$Html$div,
 		{ctor: '[]'},
 		{
 			ctor: '::',
-			_0: _user$project$Signup_Main$banner,
+			_0: _user$project$Signup_Main$banner(_user$project$Signup_Main$initUser),
 			_1: {
 				ctor: '::',
-				_0: _user$project$Signup_Main$signupForm,
+				_0: _user$project$Signup_Main$signupForm(_user$project$Signup_Main$initUser),
 				_1: {ctor: '[]'}
 			}
-		}));
+		});
+};
+var _user$project$Signup_Main$main = _elm_lang$html$Html$beginnerProgram(
+	{model: _user$project$Signup_Main$initUser, view: _user$project$Signup_Main$view, update: _user$project$Signup_Main$update})();
 
 var Elm = {};
 Elm['Signup'] = Elm['Signup'] || {};
